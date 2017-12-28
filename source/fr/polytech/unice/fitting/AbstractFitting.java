@@ -1,5 +1,6 @@
 package fr.polytech.unice.fitting;
 
+import fr.polytech.unice.exception.OverLoadedBinException;
 import fr.polytech.unice.utils.Bin;
 import fr.polytech.unice.utils.Item;
 
@@ -15,7 +16,7 @@ public abstract class AbstractFitting {
     }
 
 
-    public abstract void fit();
+    public abstract void fit() throws OverLoadedBinException;
 
     public void results() {
 

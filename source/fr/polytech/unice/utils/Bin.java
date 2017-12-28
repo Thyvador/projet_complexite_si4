@@ -26,6 +26,10 @@ public class Bin {
         this.space = space;
     }
 
+    public boolean isFitting(Item item){
+        return item.size() < freeSpace;
+    }
+
     public void addItem(Item item) throws OverLoadedBinException {
         if (freeSpace < item.size()){
             throw new OverLoadedBinException(freeSpace, item.size());
