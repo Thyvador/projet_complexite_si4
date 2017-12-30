@@ -15,6 +15,7 @@ public class BestFit extends AbstractFitting {
 
     @Override
     public void fit() throws OverLoadedBinException {
+        long start = System.nanoTime();
         //TODO :: Check sort dans le bon sens
         Collections.sort(bins);
         Iterator<Item> itemIterator = items.iterator();
@@ -31,5 +32,7 @@ public class BestFit extends AbstractFitting {
                 }
             }
         }
+        long end = System.nanoTime();
+        elapsedTime = end - start;
     }
 }

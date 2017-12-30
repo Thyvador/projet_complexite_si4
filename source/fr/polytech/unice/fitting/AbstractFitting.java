@@ -7,8 +7,10 @@ import fr.polytech.unice.utils.Item;
 import java.util.List;
 
 public abstract class AbstractFitting {
-    List<Item> items;
-    List<Bin> bins;
+    protected List<Item> items;
+    protected List<Bin> bins;
+
+    protected long elapsedTime;
 
     public AbstractFitting(List<Item> items, List<Bin> bins) {
         this.items = items;

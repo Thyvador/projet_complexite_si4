@@ -14,6 +14,7 @@ public class NextFit extends AbstractFitting {
 
     @Override
     public void fit() throws OverLoadedBinException {
+        long start = System.nanoTime();
         Iterator<Item> itemIterator = items.iterator();
         Item item = itemIterator.next();
         for (Bin bin : bins) {
@@ -25,5 +26,7 @@ public class NextFit extends AbstractFitting {
             }
 
         }
+        long end = System.nanoTime();
+        elapsedTime = end - start;
     }
 }
