@@ -4,13 +4,13 @@ import fr.polytech.unice.exception.OverLoadedBinException;
 import fr.polytech.unice.utils.Bin;
 import fr.polytech.unice.utils.Item;
 
-import java.util.Collection;
+import java.util.List;
 
 public abstract class AbstractFitting {
-    Collection<Item> items;
-    Collection<Bin> bins;
+    List<Item> items;
+    List<Bin> bins;
 
-    public AbstractFitting(Collection<Item> items, Collection<Bin> bins) {
+    public AbstractFitting(List<Item> items, List<Bin> bins) {
         this.items = items;
         this.bins = bins;
     }

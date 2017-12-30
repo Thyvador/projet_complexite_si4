@@ -4,11 +4,11 @@ import fr.polytech.unice.exception.OverLoadedBinException;
 import fr.polytech.unice.utils.Bin;
 import fr.polytech.unice.utils.Item;
 
-import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 public class NextFit extends AbstractFitting {
-    public NextFit(Collection<Item> items, Collection<Bin> bins) {
+    public NextFit(List<Item> items, List<Bin> bins) {
         super(items, bins);
     }
 

@@ -5,7 +5,7 @@ import fr.polytech.unice.exception.OverLoadedBinException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Bin {
+public class Bin implements Comparable {
     //TODO check si oon peut passer en int
     private double space;
     private double freeSpace;
@@ -26,15 +26,21 @@ public class Bin {
         this.space = space;
     }
 
-    public boolean isFitting(Item item){
+    public boolean isFitting(Item item) {
         return item.size() < freeSpace;
     }
 
     public void addItem(Item item) throws OverLoadedBinException {
-        if (freeSpace < item.size()){
+        if (freeSpace < item.size()) {
             throw new OverLoadedBinException(freeSpace, item.size());
         }
         items.add(item);
         freeSpace -= item.size();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Bin bin = (Bin) o;
+        return (int) (this.space - bin.space);
     }
 }

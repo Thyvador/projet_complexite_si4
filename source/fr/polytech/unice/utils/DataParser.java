@@ -6,12 +6,12 @@ import java.io.File;
 
 public class DataParser {
 
-    public AbstractFitting parseData(File file){
+    public AbstractFitting parseData(File file) {
 
         return null;
     }
 
-    public void writeResult(AbstractFitting abstractFitting){
+    public void writeResult(AbstractFitting abstractFitting) {
 
     }
 }
