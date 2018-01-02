@@ -9,15 +9,16 @@ import java.util.List;
 
 public abstract class AbstractFitting {
 
-    protected List<Item> items;
-    protected List<Bin> bins;
-    protected int binSize;
+    List<Item> items;
+    List<Bin> bins;
+    int binSize;
 
-    protected long elapsedTime;
+    long elapsedTime;
 
-    public AbstractFitting(List<Item> items, int binSize) {
+    AbstractFitting(List<Item> items, int binSize) {
         this.items = items;
         this.binSize = binSize;
+        this.elapsedTime = 0;
         this.bins = new ArrayList<>();
     }
 
