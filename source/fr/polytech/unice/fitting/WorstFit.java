@@ -25,7 +25,7 @@ public class WorstFit extends AbstractFitting {
 
             Bin bin = (super.bins.get(0).isFitting(item)) ? super.bins.remove(0) : new Bin(super.binSize);
 
-            if (bin.isFitting(item)) {
+            if (bin.isFitting(item)) {  /* in case the item size is superior to the bin size */
                 bin.addItem(item);
                 int i = 0;
                 while (i < super.bins.size() && (bin.getFreeSpace() - super.bins.get(i).getFreeSpace()) < 0) i++;
