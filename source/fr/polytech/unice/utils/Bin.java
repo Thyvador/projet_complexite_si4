@@ -30,6 +30,10 @@ public class Bin implements Comparable {
         return item.size() < freeSpace;
     }
 
+    public boolean isEmpty() {
+        return this.space == this.freeSpace;
+    }
+
     public void addItem(Item item) throws OverLoadedBinException {
         if (freeSpace < item.size()) {
             throw new OverLoadedBinException(freeSpace, item.size());
@@ -41,7 +45,7 @@ public class Bin implements Comparable {
     @Override
     public int compareTo(Object o) {
         Bin bin = (Bin) o;
-        return (int) (this.space - bin.space);
+        return this.space - bin.space;
     }
 
     @Override

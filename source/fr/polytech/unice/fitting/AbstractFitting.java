@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractFitting {
+
     protected List<Item> items;
     protected List<Bin> bins;
     protected int binSize;
