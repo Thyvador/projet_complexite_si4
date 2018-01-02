@@ -18,16 +18,12 @@ public class Bin implements Comparable {
         items = new ArrayList<>();
     }
 
-    public int space() {
-        return space;
-    }
-
-    public void setSpace(int space) {
-        this.space = space;
+    public int getFreeSpace() {
+        return this.freeSpace;
     }
 
     public boolean isFitting(Item item) {
-        return item.size() < freeSpace;
+        return item.size() <= freeSpace;
     }
 
     public void addItem(Item item) throws OverLoadedBinException {

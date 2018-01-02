@@ -4,7 +4,6 @@ import fr.polytech.unice.exception.OverLoadedBinException;
 import fr.polytech.unice.utils.Bin;
 import fr.polytech.unice.utils.Item;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class NextFit extends AbstractFitting {
@@ -15,22 +14,21 @@ public class NextFit extends AbstractFitting {
 
     @Override
     public void fit() throws OverLoadedBinException {
+
+        if (super.items.isEmpty()) return;
+
         long start = System.nanoTime();
-        Iterator<Item> itemIterator = items.iterator();
-        Item item = itemIterator.next();
-        Bin bin = new Bin(binSize);
-        bins.add(bin);
-        while (itemIterator.hasNext()) {
+        super.bins.add(new Bin(super.binSize));
 
-            if (bin.isFitting(item)) {
-                bin.addItem(item);
-                item = itemIterator.next();
-            } else {
-                bin = new Bin(binSize);
-                bins.add(bin);
-            }
+        for (Item item : super.items) {
 
+            if (!super.bins.get(0).isFitting(item))
+                super.bins.add(0, new Bin(super.binSize));
+
+            if (super.bins.get(0).isFitting(item)) /* in case the item size is superior to the bin size */
+                super.bins.get(0).addItem(item);
         }
+
         long end = System.nanoTime();
         elapsedTime = end - start;
     }

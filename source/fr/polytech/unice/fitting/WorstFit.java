@@ -5,6 +5,7 @@ import fr.polytech.unice.utils.Bin;
 import fr.polytech.unice.utils.Item;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class WorstFit extends AbstractFitting {
 
@@ -27,7 +28,7 @@ public class WorstFit extends AbstractFitting {
             if (bin.isFitting(item)) {
                 bin.addItem(item);
                 int i = 0;
-                while (i < super.bins.size() && bin.compareTo(bins.get(i)) < 0) i++;
+                while (i < super.bins.size() && (bin.getFreeSpace() - super.bins.get(i).getFreeSpace()) < 0) i++;
                 super.bins.add(i, bin);
             }
         }
