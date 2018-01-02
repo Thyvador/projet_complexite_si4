@@ -21,7 +21,6 @@ public abstract class AbstractFitting {
         this.bins = new ArrayList<>();
     }
 
-
     public abstract void fit() throws OverLoadedBinException;
 
     public List<Bin> results() {
@@ -31,4 +30,6 @@ public abstract class AbstractFitting {
     public long getElapsedTime() {
         return elapsedTime;
     }
+
+    public abstract String name();
 }

@@ -45,4 +45,9 @@ public class BestFit extends AbstractFitting {
         bins.remove(bin);
         bins.add(i, bin);
     }
+
+    @Override
+    public String name() {
+        return "BestFit";
+    }
 }

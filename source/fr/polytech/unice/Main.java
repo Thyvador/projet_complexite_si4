@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
         try {
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 3; i++) {
                 runAlgo(args[0] + "exemple100.txt", i);
                 runAlgo(args[0] + "exemple1000.txt", i);
                 runAlgo(args[0] + "exemple500.txt", i);

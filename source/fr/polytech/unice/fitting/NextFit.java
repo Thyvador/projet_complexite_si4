@@ -9,7 +9,6 @@ import java.util.List;
 
 public class NextFit extends AbstractFitting {
 
-
     public NextFit(List<Item> items, int binSize) {
         super(items, binSize);
     }
@@ -34,5 +33,10 @@ public class NextFit extends AbstractFitting {
         }
         long end = System.nanoTime();
         elapsedTime = end - start;
+    }
+
+    @Override
+    public String name() {
+        return "NextFit";
     }
 }

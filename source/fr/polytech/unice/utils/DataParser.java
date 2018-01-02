@@ -3,6 +3,7 @@ package fr.polytech.unice.utils;
 import fr.polytech.unice.fitting.AbstractFitting;
 import fr.polytech.unice.fitting.BestFit;
 import fr.polytech.unice.fitting.NextFit;
+import fr.polytech.unice.fitting.WorstFit;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,13 +30,15 @@ public class DataParser {
                 return new NextFit(items, size);
             case 1:
                 return new BestFit(items, size);
+            case 2:
+                return new WorstFit(items, size);
             default:
                 return null;
         }
     }
 
     public static void writeResult(AbstractFitting abstractFitting) {
-        System.out.println("Elapsed time : " + (abstractFitting.getElapsedTime()/1000) + " ms");
+        System.out.println("->\t" + abstractFitting.name() + "\nElapsed time : " + (abstractFitting.getElapsedTime() / 1000) + " ms");
         abstractFitting.results().forEach(System.out::println);
 
     }

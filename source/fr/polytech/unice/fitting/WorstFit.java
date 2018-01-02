@@ -8,7 +8,6 @@ import java.util.List;
 
 public class WorstFit extends AbstractFitting {
 
-
     public WorstFit(List<Item> items, int binSize) {
         super(items, binSize);
     }
@@ -28,7 +27,7 @@ public class WorstFit extends AbstractFitting {
             if (bin.isFitting(item)) {
                 bin.addItem(item);
                 int i = 0;
-                while (bin.compareTo(bins.get(i)) < 0) i++;
+                while (i < super.bins.size() && bin.compareTo(bins.get(i)) < 0) i++;
                 super.bins.add(i, bin);
             }
         }
@@ -37,4 +36,10 @@ public class WorstFit extends AbstractFitting {
         super.elapsedTime = end - start;
 
     }
+
+    @Override
+    public String name() {
+        return "WorstFit";
+    }
+
 }
