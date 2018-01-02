@@ -9,15 +9,21 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
         try {
-            AbstractFitting algo = DataParser.parseData("C:\\Users\\alexh\\IdeaProjects\\projet_complexite_si4\\exemples\\exemple1000.txt", 1);
-            algo.fit();
-            DataParser.writeResult(algo);
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (OverLoadedBinException e) {
+            for (int i = 0; i < 2; i++) {
+                runAlgo(args[0] + "exemple100.txt", i);
+                runAlgo(args[0] + "exemple1000.txt", i);
+                runAlgo(args[0] + "exemple500.txt", i);
+                runAlgo(args[0] + "monexemple.txt", i);
+            }
+        } catch (IOException | OverLoadedBinException e) {
             e.printStackTrace();
         }
     }
+
+    private static void runAlgo(String path, int i) throws OverLoadedBinException, IOException {
+        AbstractFitting algo = DataParser.parseData(path, i);
+        algo.fit();
+        DataParser.writeResult(algo);
+    }
 }
+
