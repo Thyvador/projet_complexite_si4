@@ -7,22 +7,22 @@ import java.util.Collection;
 
 public class Bin implements Comparable {
     //TODO check si oon peut passer en int
-    private double space;
-    private double freeSpace;
+    private int space;
+    private int freeSpace;
     private Collection<Item> items;
 
-    public Bin(double space) {
+    public Bin(int space) {
         this.space = space;
         freeSpace = space;
         //TODO Est ce que c'est le plus opti ?
         items = new ArrayList<>();
     }
 
-    public double space() {
+    public int space() {
         return space;
     }
 
-    public void setSpace(double space) {
+    public void setSpace(int space) {
         this.space = space;
     }
 
@@ -42,5 +42,14 @@ public class Bin implements Comparable {
     public int compareTo(Object o) {
         Bin bin = (Bin) o;
         return (int) (this.space - bin.space);
+    }
+
+    @Override
+    public String toString() {
+        return "Bin{" +
+                "space=" + space +
+                ", freeSpace=" + freeSpace +
+                ", items=" + items +
+                '}';
     }
 }

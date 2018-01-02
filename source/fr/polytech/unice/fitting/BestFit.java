@@ -9,30 +9,40 @@ import java.util.Iterator;
 import java.util.List;
 
 public class BestFit extends AbstractFitting {
-    public BestFit(List<Item> items, List<Bin> bins) {
-        super(items, bins);
+
+    public BestFit(List<Item> items, int binSize) {
+        super(items, binSize);
     }
 
     @Override
     public void fit() throws OverLoadedBinException {
         long start = System.nanoTime();
-        //TODO :: Check sort dans le bon sens
-        Collections.sort(bins);
         Iterator<Item> itemIterator = items.iterator();
+        bins.add(new Bin(binSize));
         while (itemIterator.hasNext()) {
             Item item = itemIterator.next();
-            for (int i = 0; i < bins.size(); i++) {
+            int i = 0;
+            for (; i < bins.size(); i++) {
                 if (bins.get(i).isFitting(item)) {
                     bins.get(i).addItem(item);
-                    Bin bin = bins.get(i);
-                    bins.remove(bin);
-                    for (; bin.compareTo(bins.get(i)) < 0; i++) {
-                        bins.add(i, bin);
-                    }
+                    sortList(i);
+                    break;
                 }
+
+            }
+            if (i >= bins.size() - 1){
+                bins.add(i, new Bin(binSize));
+                sortList(i);
             }
         }
         long end = System.nanoTime();
         elapsedTime = end - start;
+    }
+
+    private void sortList(int i){
+        Bin bin = bins.get(i);
+        for (int j = i; bin.compareTo(bins.get(i)) < 0 || j > 0; j--) {}
+        bins.remove(bin);
+        bins.add(i, bin);
     }
 }
