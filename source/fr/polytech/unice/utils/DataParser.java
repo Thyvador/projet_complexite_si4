@@ -37,10 +37,13 @@ public class DataParser {
     }
 
     public static void writeResult(AbstractFitting abstractFitting) {
-        System.out.println(abstractFitting.name() + "\t\t\t" +
-                abstractFitting.itemCount() + " items\t\t\t" +
-                abstractFitting.results().size() + "\tbins\t\t\t" +
-                (abstractFitting.getElapsedTime() / 1000) + " ms");
+        System.out.println(
+                String.format("%1$-" + 12 + "s", abstractFitting.name()) +
+                        String.format("%1$-" + 12 + "s", abstractFitting.binSize() + " units") +
+                        String.format("%1$-" + 16 + "s", abstractFitting.itemCount() + " items") +
+                        String.format("%1$-" + 16 + "s", abstractFitting.results().size() + " bins") +
+                        String.format("%1$-" + 16 + "s", (abstractFitting.getElapsedTime() / 1000) + " ms")
+                );
     }
 
     public static void printDetails(AbstractFitting abstractFitting){
