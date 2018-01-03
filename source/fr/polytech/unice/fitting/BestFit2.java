@@ -28,12 +28,11 @@ public class BestFit2 extends AbstractFitting {
 
             if (bin.isFitting(item)) {  /* in case the item size is superior to the bin size */
                 bin.addItem(item);
-                i = 0;
+                i = (i == super.bins.size()) ? 0 : i;
                 while (i < super.bins.size() && (bin.getFreeSpace() - super.bins.get(i).getFreeSpace()) > 0) i++;
                 super.bins.add(i, bin);
             }
-            
-            
+
 
         }
 
