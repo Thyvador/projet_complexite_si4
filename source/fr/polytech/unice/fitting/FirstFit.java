@@ -4,7 +4,6 @@ import fr.polytech.unice.exception.OverLoadedBinException;
 import fr.polytech.unice.utils.Bin;
 import fr.polytech.unice.utils.Item;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class FirstFit extends AbstractFitting {
@@ -28,10 +27,12 @@ public class FirstFit extends AbstractFitting {
                 }
 
             }
+
             if (i >= bins.size()) {
                 bins.add(i, new Bin(binSize));
                 bins.get(i).addItem(item);
             }
+
         }
 
         long end = System.nanoTime();
