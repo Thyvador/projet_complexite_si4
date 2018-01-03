@@ -1,10 +1,7 @@
 package fr.polytech.unice;
 
 import fr.polytech.unice.exception.OverLoadedBinException;
-import fr.polytech.unice.fitting.AbstractFitting;
-import fr.polytech.unice.fitting.BestFit;
-import fr.polytech.unice.fitting.NextFit;
-import fr.polytech.unice.fitting.WorstFit;
+import fr.polytech.unice.fitting.*;
 import fr.polytech.unice.utils.DataParser;
 import fr.polytech.unice.utils.Item;
 
@@ -30,7 +27,7 @@ public class MainStat {
                     items.add(new Item(rand.nextInt(size)));
                 }
 
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 4; i++) {
                     runAlgo(items, size, i);
                 }
                 System.out.println("Run again ?(Y/N)");
@@ -48,10 +45,13 @@ public class MainStat {
                 algo = new NextFit(items, size);
                 break;
             case 1:
-                algo = new BestFit(items, size);
+                algo = new FirstFit(items, size);
                 break;
             case 2:
                 algo = new WorstFit(items, size);
+                break;
+            case 3:
+                algo = new BestFit(items, size);
                 break;
             default:
                 return;
