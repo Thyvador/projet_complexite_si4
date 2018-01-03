@@ -23,13 +23,19 @@ public class MainStat {
                 int itemsNb = sc.nextInt();
                 List<Item> items = new ArrayList<>();
                 Random rand = new Random();
+                System.out.println("Print Details ? (Y/N)");
+                String printDetails = sc.next();
+                boolean printDetailsBool = printDetails.equals("Y") || printDetails.equals("y");
+
                 for (int i = 0; i < itemsNb; i++) {
                     items.add(new Item(rand.nextInt(size)));
                 }
 
                 for (int i = 0; i < 4; i++) {
-                    runAlgo(items, size, i);
+                    runAlgo(items, size, i, printDetailsBool);
                 }
+
+
                 System.out.println("Run again ?(Y/N)");
                 runAgain = sc.next();
             } while (runAgain.equals("y") || runAgain.equals("Y"));
@@ -38,7 +44,7 @@ public class MainStat {
         }
     }
 
-    private static void runAlgo(List<Item> items, int size, int i) throws OverLoadedBinException, IOException {
+    private static void runAlgo(List<Item> items, int size, int i, boolean details) throws OverLoadedBinException, IOException {
         AbstractFitting algo;
         switch (i) {
             case 0:
@@ -58,5 +64,6 @@ public class MainStat {
         }
         algo.fit();
         DataParser.writeResult(algo);
+        if (details) DataParser.printDetails(algo);
     }
 }

@@ -41,6 +41,9 @@ public class DataParser {
                 abstractFitting.itemCount() + " items\t\t\t" +
                 abstractFitting.results().size() + "\tbins\t\t\t" +
                 (abstractFitting.getElapsedTime() / 1000) + " ms");
-        //abstractFitting.results().forEach(System.out::println);
+    }
+
+    public static void printDetails(AbstractFitting abstractFitting){
+        abstractFitting.results().forEach(System.out::println);
     }
 }

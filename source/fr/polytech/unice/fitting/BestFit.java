@@ -41,9 +41,12 @@ public class BestFit extends AbstractFitting {
 
     private void sortList(int i){
         Bin bin = bins.get(i);
-        for (int j = i; bin.compareTo(bins.get(i)) < 0 || j > 0; j--) {}
-        bins.remove(bin);
-        bins.add(i, bin);
+        int j = i;
+        for (; bin.compareTo(bins.get(i)) < 0 || j > 0; j--) {}
+        if(i != j){
+            bins.remove(bin);
+            bins.add(i, bin);
+        }
     }
 
     @Override
