@@ -32,7 +32,7 @@ public class MainStat {
                 }
                 System.out.println("Run again ?(Y/N)");
                 runAgain = sc.next();
-            } while (runAgain == "y" || runAgain == "Y");
+            } while (runAgain.equals("y") || runAgain.equals("Y"));
         } catch (IOException | OverLoadedBinException e) {
             e.printStackTrace();
         }
