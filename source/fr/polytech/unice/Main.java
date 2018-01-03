@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Algorithm\tMax Size\tItems to pack\tBins generated\tTime elapsed\n");
+
         try {
             for (int i = 0; i < 4; i++) {
                 runAlgo(args[0] + "exemple100.txt", i);
