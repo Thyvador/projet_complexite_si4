@@ -13,26 +13,33 @@ import java.util.Scanner;
 
 public class MainStat {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String runAgain = "y";
+        int size = 0, itemsNb = 0;
         try {
-            Scanner sc = new Scanner(System.in);
-            String runAgain;
-            do {
-                System.out.println("Size of bins : ");
-                int size = sc.nextInt();
-                System.out.println("Nb of items : ");
-                int itemsNb = sc.nextInt();
-                List<Item> items = new ArrayList<>();
-                Random rand = new Random();
-                for (int i = 0; i < itemsNb; i++) {
-                    items.add(new Item(rand.nextInt(size)));
+            for (; runAgain.equals("y") || runAgain.equals("r"); ) {
+                switch (runAgain) {
+                    case "y":
+                        System.out.println("Size of bins : ");
+                        size = sc.nextInt();
+                        System.out.println("Nb of items : ");
+                        itemsNb = sc.nextInt();
+                    case "r":
+                        List<Item> items = new ArrayList<>();
+                        Random rand = new Random();
+                        for (int i = 0; i < itemsNb; i++) {
+                            items.add(new Item(rand.nextInt(size)));
+                        }
+                        for (int i = 0; i < 4; i++) {
+                            runAlgo(items, size, i);
+                        }
+                        break;
+                    default :
                 }
-
-                for (int i = 0; i < 4; i++) {
-                    runAlgo(items, size, i);
-                }
-                System.out.println("Run again ?(Y/N)");
+                System.out.println("Run statistics again ?\t\t\t(y) to run again\t\t\t" +
+                        "(r) to run with the same configuration\t\t\t () any key to quit");
                 runAgain = sc.next();
-            } while (runAgain.equals("y") || runAgain.equals("Y"));
+            }
         } catch (IOException | OverLoadedBinException e) {
             e.printStackTrace();
         }
