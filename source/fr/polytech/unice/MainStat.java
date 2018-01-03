@@ -31,9 +31,11 @@ public class MainStat {
                     case "r":
                         List<Item> items = new ArrayList<>();
                         Random rand = new Random();
+                        System.out.println("Size of bins : " + size);
                         for (int i = 0; i < itemsNb; i++) {
                             items.add(new Item(rand.nextInt(size)));
                         }
+                        System.out.println("Items : \n" + items.toString());
                         for (int i = 0; i < 4; i++) {
                             runAlgo(items, size, i, printDetailsBool);
                         }

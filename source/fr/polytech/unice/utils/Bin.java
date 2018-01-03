@@ -48,4 +48,8 @@ public class Bin implements Comparable {
                 ", items=" + items +
                 '}';
     }
+
+    public int itemsCount() {
+        return items.size();
+    }
 }

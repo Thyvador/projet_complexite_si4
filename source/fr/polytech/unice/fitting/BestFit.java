@@ -4,7 +4,6 @@ import fr.polytech.unice.exception.OverLoadedBinException;
 import fr.polytech.unice.utils.Bin;
 import fr.polytech.unice.utils.Item;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class BestFit extends AbstractFitting {
@@ -16,38 +15,34 @@ public class BestFit extends AbstractFitting {
     @Override
     public void fit() throws OverLoadedBinException {
         long start = System.nanoTime();
-        Iterator<Item> itemIterator = items.iterator();
-        while (itemIterator.hasNext()) {
-            Item item = itemIterator.next();
+        for (Item item : items) {
+            Bin bin = null;
             int i = 0;
             for (; i < bins.size(); i++) {
                 if (bins.get(i).isFitting(item)) {
+                    bin = bins.remove(i);
                     break;
                 }
+            }
 
+            if (i >= bins.size() && bin == null) {
+                bin = new Bin(binSize);
             }
-            if (i >= bins.size() - 1) {
-                bins.add(i, new Bin(binSize));
+            i--;
+            bin.addItem(item);
+
+            if (bins.size() == 0) i = -1;
+
+            while (i >= 0 && bin.compareTo(bins.get(i)) < 0) {
+                i--;
             }
-            bins.get(i).addItem(item);
-            sortList(i);
+            bins.add(i + 1, bin);
+
         }
         long end = System.nanoTime();
         elapsedTime = end - start;
     }
 
-    private void sortList(int i) {
-        Bin bin = bins.get(i);
-        int j = i;
-        while (j > 0) {
-            j--;
-            if (bin.compareTo(bins.get(j)) < 0) {
-                bins.remove(bin);
-                bins.add(j, bin);
-            }
-        }
-
-    }
 
     @Override
     public String name() {

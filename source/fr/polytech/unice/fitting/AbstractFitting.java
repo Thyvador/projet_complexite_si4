@@ -33,7 +33,7 @@ public abstract class AbstractFitting {
     }
 
     public int itemCount() {
-        return items.size();
+        return bins.stream().mapToInt(Bin::itemsCount).sum();
     }
 
     public long getElapsedTime() {
