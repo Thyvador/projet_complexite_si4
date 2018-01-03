@@ -26,10 +26,9 @@ public class BestFit extends AbstractFitting {
                 }
 
             }
-            if (i >= bins.size() - 1 && itemIterator.hasNext()) {
+            if (i >= bins.size() - 1) {
                 bins.add(i, new Bin(binSize));
             }
-
             bins.get(i).addItem(item);
             sortList(i);
         }
