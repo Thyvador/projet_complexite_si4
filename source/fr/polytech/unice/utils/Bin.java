@@ -37,7 +37,7 @@ public class Bin implements Comparable {
     @Override
     public int compareTo(Object o) {
         Bin bin = (Bin) o;
-        return this.space - bin.space;
+        return this.freeSpace - bin.freeSpace;
     }
 
     @Override

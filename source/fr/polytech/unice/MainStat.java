@@ -30,6 +30,9 @@ public class MainStat {
                 for (int i = 0; i < itemsNb; i++) {
                     items.add(new Item(rand.nextInt(size)));
                 }
+                System.out.println("Taille bin\n" +
+                        + size + "\n" +
+                        "Objets\n" + items.toString());
 
                 for (int i = 0; i < 4; i++) {
                     runAlgo(items, size, i, printDetailsBool);
