@@ -7,13 +7,17 @@ import fr.polytech.unice.utils.DataParser;
 import java.io.IOException;
 
 public class Main {
+
     public static void main(String[] args) {
+
+        System.out.println("Algorithm\t\t\tItems to sort\t\tBins generated\t\tTime elapsed\n");
         try {
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 4; i++) {
                 runAlgo(args[0] + "exemple100.txt", i);
                 runAlgo(args[0] + "exemple1000.txt", i);
                 runAlgo(args[0] + "exemple500.txt", i);
                 runAlgo(args[0] + "monexemple.txt", i);
+                System.out.println("");
             }
         } catch (IOException | OverLoadedBinException e) {
             e.printStackTrace();

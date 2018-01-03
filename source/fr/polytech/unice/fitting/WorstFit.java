@@ -40,7 +40,7 @@ public class WorstFit extends AbstractFitting {
 
     @Override
     public String name() {
-        return "WorstFit";
+        return "Worst_Fit";
     }
 
 }

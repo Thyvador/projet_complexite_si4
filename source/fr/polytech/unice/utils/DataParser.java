@@ -1,9 +1,6 @@
 package fr.polytech.unice.utils;
 
-import fr.polytech.unice.fitting.AbstractFitting;
-import fr.polytech.unice.fitting.BestFit;
-import fr.polytech.unice.fitting.NextFit;
-import fr.polytech.unice.fitting.WorstFit;
+import fr.polytech.unice.fitting.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,17 +26,21 @@ public class DataParser {
             case 0:
                 return new NextFit(items, size);
             case 1:
-                return new BestFit(items, size);
+                return new FirstFit(items, size);
             case 2:
                 return new WorstFit(items, size);
+            case 3:
+                return new BestFit(items, size);
             default:
                 return null;
         }
     }
 
     public static void writeResult(AbstractFitting abstractFitting) {
-        System.out.println("->\t" + abstractFitting.name() + "\nElapsed time : " + (abstractFitting.getElapsedTime() / 1000) + " ms");
-        abstractFitting.results().forEach(System.out::println);
-
+        System.out.println(abstractFitting.name() + "\t\t\t" +
+                abstractFitting.itemCount() + " items\t\t\t" +
+                abstractFitting.results().size() + "\tbins\t\t\t" +
+                (abstractFitting.getElapsedTime() / 1000) + " ms");
+        //abstractFitting.results().forEach(System.out::println);
     }
 }

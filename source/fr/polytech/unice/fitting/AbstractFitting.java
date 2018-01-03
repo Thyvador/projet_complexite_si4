@@ -28,6 +28,14 @@ public abstract class AbstractFitting {
         return new ArrayList<>(bins);
     }
 
+    public int binSize() {
+        return binSize;
+    }
+
+    public int itemCount() {
+        return items.size();
+    }
+
     public long getElapsedTime() {
         return elapsedTime;
     }

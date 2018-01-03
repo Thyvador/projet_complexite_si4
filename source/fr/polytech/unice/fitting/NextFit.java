@@ -35,6 +35,6 @@ public class NextFit extends AbstractFitting {
 
     @Override
     public String name() {
-        return "NextFit";
+        return "Next_Fit";
     }
 }

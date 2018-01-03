@@ -48,6 +48,6 @@ public class BestFit extends AbstractFitting {
 
     @Override
     public String name() {
-        return "BestFit";
+        return "Best_Fit";
     }
 }
