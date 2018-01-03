@@ -25,7 +25,7 @@ public class MainStat {
                         size = sc.nextInt();
                         System.out.println("Nb of items : ");
                         itemsNb = sc.nextInt();
-                        System.out.println("Print Details ? (Y/N)");
+                        System.out.println("Print Details ? (y/n)");
                         String printDetails = sc.next();
                         printDetailsBool = printDetails.equals("Y") || printDetails.equals("y");
                     case "r":

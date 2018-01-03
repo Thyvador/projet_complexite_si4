@@ -30,6 +30,7 @@ public class FirstFit extends AbstractFitting {
             }
             if (i >= bins.size()) {
                 bins.add(i, new Bin(binSize));
+                bins.get(i).addItem(item);
             }
         }
 
