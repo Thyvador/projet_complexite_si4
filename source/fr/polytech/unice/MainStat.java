@@ -18,7 +18,7 @@ public class MainStat {
         int size = 0, itemsNb = 0;
         boolean printDetailsBool = false;
         try {
-            for (; runAgain.equals("y") || runAgain.equals("r"); ) {
+            while (runAgain.equals("y") || runAgain.equals("r")) {
                 switch (runAgain) {
                     case "y":
                         System.out.println("Size of bins : ");
@@ -38,8 +38,8 @@ public class MainStat {
                             runAlgo(items, size, i, printDetailsBool);
                         }
                         break;
-                    default :
-               
+                    default:
+
                 }
                 System.out.println("Run statistics again ?\t\t\t(y) to run again\t\t\t" +
                         "(r) to run with the same configuration\t\t\t () any key to quit");
