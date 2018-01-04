@@ -36,7 +36,7 @@ public class MainStat {
                             items.add(new Item(rand.nextInt(size)));
                         }
                         System.out.println("Items : \n" + items.toString());
-                        for (int i = 0; i < 4; i++) {
+                        for (int i = 0; i <= 4; i++) {
                             runAlgo(items, size, i, printDetailsBool);
                         }
                         break;
@@ -66,6 +66,9 @@ public class MainStat {
                 break;
             case 3:
                 algo = new BestFit(items, size);
+                break;
+            case 4:
+                algo = new AlmostWorstFit(items, size);
                 break;
             default:
                 return;

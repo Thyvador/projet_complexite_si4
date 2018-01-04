@@ -13,7 +13,7 @@ public class Main {
         System.out.println("Algorithm\tMax Size\tItems to pack\tBins generated\tTime elapsed\n");
 
         try {
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i <= 4; i++) {
                 runAlgo(args[0] + "exemple100.txt", i);
                 runAlgo(args[0] + "exemple1000.txt", i);
                 runAlgo(args[0] + "exemple500.txt", i);
