@@ -40,7 +40,7 @@ public class DataParser {
 
     public static void writeResult(AbstractFitting abstractFitting) {
         System.out.println(
-                String.format("%1$-" + 12 + "s", abstractFitting.name()) +
+                String.format("%1$-" + 20    + "s", abstractFitting.name()) +
                         String.format("%1$-" + 12 + "s", abstractFitting.binSize() + " units") +
                         String.format("%1$-" + 16 + "s", abstractFitting.itemCount() + " items") +
                         String.format("%1$-" + 16 + "s", abstractFitting.results().size() + " bins") +
