@@ -55,7 +55,7 @@ public class DataParser {
     }
 
 
-    private static String getTauxRemplissage(List<Bin> bins) {
+    public static String getTauxRemplissage(List<Bin> bins) {
         double taux = 0;
 
         for (Bin bin: bins) {
