@@ -1,6 +1,6 @@
 package fr.polytech.unice.utils;
 
-public class Item {
+public class Item implements Comparable<Item> {
     //TODO Check si on peut changer en int.
     private int size;
 
@@ -19,5 +19,10 @@ public class Item {
     @Override
     public String toString() {
         return String.valueOf(size);
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        return this.size - o.size;
     }
 }

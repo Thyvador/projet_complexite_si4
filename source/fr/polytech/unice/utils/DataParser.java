@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DataParser {
@@ -22,6 +23,10 @@ public class DataParser {
         for (String s : buf.split(",")) {
             items.add(new Item(Integer.parseInt(s.replaceAll("\\D", ""))));
         }
+
+        // ON PEUT TRIER ICI
+//        Collections.sort(items, Collections.reverseOrder());
+//        Collections.sort(items, Collections.reverseOrder());
         switch (type) {
             case 0:
                 return new NextFit(items, size);
