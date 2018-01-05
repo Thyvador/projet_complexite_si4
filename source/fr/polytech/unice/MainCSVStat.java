@@ -21,7 +21,7 @@ public class MainCSVStat {
         FileWriter fileWriter = new FileWriter("stats.csv");
 
         writeCSVHeader(fileWriter);
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 8; i++) {
             List<Item> items = generateRandomList(Math.pow(10, i));
 
             System.out.println(i + "\n");
