@@ -44,9 +44,22 @@ public class DataParser {
                         String.format("%1$-" + 12 + "s", abstractFitting.binSize() + " units") +
                         String.format("%1$-" + 16 + "s", abstractFitting.itemCount() + " items") +
                         String.format("%1$-" + 16 + "s", abstractFitting.results().size() + " bins") +
-                        String.format("%1$-" + 16 + "s", (abstractFitting.getElapsedTime() / 1000) + " ms")
-                );
+                        String.format("%1$-" + 16 + "s", (abstractFitting.getElapsedTime() / 1000) + " ms") +
+                        String.format("%1$-" + 16 + "s", getTauxRemplissage(abstractFitting.results()) + " %")
+        );
     }
+
+
+    private static String getTauxRemplissage(List<Bin> bins) {
+        double taux = 0;
+
+        for (Bin bin: bins) {
+            taux += bin.getTauxRemplissage();
+        }
+        taux = taux * 100;
+        return String.format("%.2f", taux / bins.size());
+    }
+
 
     public static void printDetails(AbstractFitting abstractFitting){
         abstractFitting.results().forEach(System.out::println);

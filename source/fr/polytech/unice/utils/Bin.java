@@ -49,6 +49,10 @@ public class Bin implements Comparable {
                 '}';
     }
 
+    public double getTauxRemplissage() {
+        return ((double)space - (double)freeSpace) / (double)space;
+    }
+
     public int itemsCount() {
         return items.size();
     }

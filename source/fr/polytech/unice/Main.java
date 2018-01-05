@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Algorithm\tMax Size\tItems to pack\tBins generated\tTime elapsed\n");
+        System.out.println("Algorithm\tMax Size\tItems to pack\tBins generated\tTime elapsed\tTaux Remplissage\n");
 
         try {
             for (int i = 0; i <= 4; i++) {
