@@ -1,6 +1,6 @@
 package fr.polytech.unice.utils;
 
-public class Item {
+public class Item implements Comparable {
 
     private int size;
 
@@ -22,7 +22,8 @@ public class Item {
     }
 
     @Override
-    public int compareTo(Item o) {
-        return this.size - o.size;
+    public int compareTo(Object o) {
+        Item item = (Item) o;
+        return this.size - item.size;
     }
 }
