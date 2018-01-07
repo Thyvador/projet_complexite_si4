@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Bin implements Comparable {
-    //TODO check si oon peut passer en int
+
     private int space;
     private int freeSpace;
     private Collection<Item> items;
@@ -14,11 +14,10 @@ public class Bin implements Comparable {
     public Bin(int space) {
         this.space = space;
         freeSpace = space;
-        //TODO Est ce que c'est le plus opti ?
         items = new ArrayList<>();
     }
 
-    public int getFreeSpace() {
+    public int freeSpace() {
         return this.freeSpace;
     }
 
@@ -32,6 +31,26 @@ public class Bin implements Comparable {
         }
         items.add(item);
         freeSpace -= item.size();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Bin bin = (Bin) o;
+
+        if (space != bin.space) return false;
+        if (freeSpace != bin.freeSpace) return false;
+        return items != null ? items.equals(bin.items) : bin.items == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = space;
+        result = 31 * result + freeSpace;
+        result = 31 * result + (items != null ? items.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -52,4 +71,5 @@ public class Bin implements Comparable {
     public int itemsCount() {
         return items.size();
     }
+
 }

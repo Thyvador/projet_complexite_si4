@@ -1,7 +1,7 @@
 package fr.polytech.unice.utils;
 
 public class Item {
-    //TODO Check si on peut changer en int.
+
     private int size;
 
     public Item(int size) {

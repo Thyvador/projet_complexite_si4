@@ -20,6 +20,7 @@ public class FirstFit extends AbstractFitting {
         int i;
 
         for (Item item : items) {
+
             for (i = 0; i < bins.size(); i++) {
                 if (bins.get(i).isFitting(item)) {
                     bins.get(i).addItem(item);

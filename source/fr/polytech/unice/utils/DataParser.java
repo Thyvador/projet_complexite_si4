@@ -30,7 +30,7 @@ public class DataParser {
             case 2:
                 return new WorstFit(items, size);
             case 3:
-                return new BestFit2(items, size);
+                return new BestFit(items, size);
             default:
                 return null;
         }
