@@ -31,6 +31,8 @@ public class DataParser {
                 return new WorstFit(items, size);
             case 3:
                 return new BestFit(items, size);
+            case 4:
+                return new AlmostWorstFit(items, size);
             default:
                 return null;
         }

@@ -63,6 +63,15 @@ public class BST {
 
     }
 
+    public Bin searchAlmostWorst() {
+        return searchAlmostWorstRec(root).getBin();
+    }
+
+    private Node searchAlmostWorstRec(Node root) {
+        if (!root.gotRight() || !root.getRight().gotRight()) return root;
+        return searchWorstRec(root.getRight());
+    }
+
     public Bin searchWorst() {
         return searchWorstRec(root).getBin();
     }
