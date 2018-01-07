@@ -1,7 +1,7 @@
 package fr.polytech.unice.utils;
 
-public class Item implements Comparable<Item> {
-    //TODO Check si on peut changer en int.
+public class Item {
+
     private int size;
 
     public Item(int size) {

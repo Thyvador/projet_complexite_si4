@@ -25,8 +25,7 @@ public class NextFit extends AbstractFitting {
             if (!super.bins.get(0).isFitting(item))
                 super.bins.add(0, new Bin(super.binSize));
 
-            if (super.bins.get(0).isFitting(item)) /* in case the item size is superior to the bin size */
-                super.bins.get(0).addItem(item);
+            super.bins.get(0).addItem(item);
         }
 
         long end = System.nanoTime();
