@@ -68,8 +68,17 @@ public class BST {
     }
 
     private Node searchAlmostWorstRec(Node root) {
-        if (!root.gotRight() || !root.getRight().gotRight()) return root;
-        return searchWorstRec(root.getRight());
+        if (root != null) {
+            Node parent = root;
+            Node child = root.getRight();
+
+            while (child != null && child.getRight() != null) {
+                parent = child;
+                child = child.getRight();
+            }
+            return (parent.getLeft() != null) ? parent.getLeft() : parent;
+        }
+        return null;
     }
 
     public Bin searchWorst() {
