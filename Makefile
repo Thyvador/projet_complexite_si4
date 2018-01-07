@@ -1,4 +1,4 @@
-all:
+all: copy_executable
 	javac source/fr/polytech/unice/exception/OverLoadedBinException.java \
 	source/fr/polytech/unice/utils/Bin.java \
 	source/fr/polytech/unice/utils/DataParser.java \
@@ -9,9 +9,17 @@ all:
 	source/fr/polytech/unice/fitting/FirstFit.java \
 	source/fr/polytech/unice/fitting/NextFit.java \
 	source/fr/polytech/unice/fitting/WorstFit.java \
-	source/fr/polytech/unice/MainCSVStat.java \
 	source/fr/polytech/unice/MainStat.java \
 	source/fr/polytech/unice/Main.java \
+
+copy_executable:
+ifeq ($(OS),Windows_NT)
+	copy executable/algo.BAT .
+	copy executable/stat.BAT .
+else
+	cp executable/algo.ex .
+	cp executable/stat.ex .
+endif
 
 clean:
 	rm source/fr/polytech/unice/exception/OverLoadedBinException.class \
@@ -27,3 +35,4 @@ clean:
 	source/fr/polytech/unice/MainCSVStat.class \
 	source/fr/polytech/unice/MainStat.class \
 	source/fr/polytech/unice/Main.class \
+
