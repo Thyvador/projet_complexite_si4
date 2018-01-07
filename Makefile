@@ -3,6 +3,8 @@ all: copy_executable
 	source/fr/polytech/unice/utils/Bin.java \
 	source/fr/polytech/unice/utils/DataParser.java \
 	source/fr/polytech/unice/utils/Item.java \
+	source/fr/polytech/unice/utils/BST.java \
+	source/fr/polytech/unice/utils/Node.java \
 	source/fr/polytech/unice/fitting/AbstractFitting.java \
 	source/fr/polytech/unice/fitting/AlmostWorstFit.java \
 	source/fr/polytech/unice/fitting/BestFit.java \
@@ -32,7 +34,8 @@ clean:
 	source/fr/polytech/unice/fitting/FirstFit.class \
 	source/fr/polytech/unice/fitting/NextFit.class \
 	source/fr/polytech/unice/fitting/WorstFit.class \
-	source/fr/polytech/unice/MainCSVStat.class \
 	source/fr/polytech/unice/MainStat.class \
 	source/fr/polytech/unice/Main.class \
+	source/fr/polytech/unice/utils/BST.class \
+	source/fr/polytech/unice/utils/Node.class \
 
