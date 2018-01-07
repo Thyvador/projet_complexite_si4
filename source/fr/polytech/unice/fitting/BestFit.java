@@ -1,6 +1,7 @@
 package fr.polytech.unice.fitting;
 
 import fr.polytech.unice.exception.OverLoadedBinException;
+import fr.polytech.unice.utils.BST;
 import fr.polytech.unice.utils.Bin;
 import fr.polytech.unice.utils.Item;
 
@@ -8,39 +9,39 @@ import java.util.List;
 
 public class BestFit extends AbstractFitting {
 
+    private BST tree;
+
     public BestFit(List<Item> items, int binSize) {
         super(items, binSize);
+        this.tree = new BST(new Bin(super.binSize));
     }
 
     @Override
     public void fit() throws OverLoadedBinException {
+        if (super.items.isEmpty()) return;
+
         long start = System.nanoTime();
-        for (Item item : items) {
-            Bin bin = null;
-            int i = 0;
-            for (; i < bins.size(); i++) {
-                if (bins.get(i).isFitting(item)) {
-                    bin = bins.remove(i);
-                    break;
-                }
+        super.bins.add(new Bin(super.binSize));
+
+        for (Item item : super.items) {
+
+            Bin bin = this.tree.searchBest(item);
+
+            if (bin == null) {
+                bin = new Bin(super.binSize);
+                super.bins.add(bin);
+            } else {
+                this.tree.delete(bin);
             }
 
-            if (i >= bins.size() && bin == null) {
-                bin = new Bin(binSize);
-            }
-            i--;
             bin.addItem(item);
 
-            if (bins.size() == 0) i = -1;
-
-            while (i >= 0 && bin.compareTo(bins.get(i)) < 0) {
-                i--;
-            }
-            bins.add(i + 1, bin);
+            this.tree.insert(bin);
 
         }
+
         long end = System.nanoTime();
-        elapsedTime = end - start;
+        super.elapsedTime = end - start;
     }
 
 

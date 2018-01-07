@@ -11,21 +11,56 @@ public class BST {
     }
 
     public Bin searchBest(Item item) {
-        return searchBestRec(root, item).getBin();
+        Node n = searchBestRec(root, item);
+        if (n == null)
+            return null;
+        else
+            return searchBestRec(root, item).getBin();
     }
 
     private Node searchBestRec(Node root, Item item) {
 
         if (root == null) return null;
 
-        if (item.size() < root.getBin().freeSpace())
-            root.setLeft(searchBestRec(root.getLeft(), item));
-        else if (item.size() > root.getBin().freeSpace())
-            root.setRight(searchBestRec(root.getRight(), item));
-        else if (item.size() == root.getBin().freeSpace())
+        if (item.size() < root.getBin().freeSpace()) {
+            Node n = searchBestRec(root.getLeft(), item);
+            if (n == null)
+                return root;
+            else
+                return n;
+        } else if (item.size() > root.getBin().freeSpace()) {
+            Node n = searchBestRec(root.getRight(), item);
+            if (n == null)
+                return null;
+            else
+                return n;
+        } else
             return root;
 
-        return root;
+    }
+
+    public Bin searchFirst(Item item) {
+        Node n = searchFirstRec(root, item);
+        if (n == null)
+            return null;
+        else
+            return searchBestRec(root, item).getBin();
+    }
+
+    private Node searchFirstRec(Node root, Item item) {
+
+        if (root == null) return null;
+
+        if (root.getBin().isFitting(item)) {
+            return root;
+        } else {
+            Node n = searchBestRec(root.getRight(), item);
+            if (n == null)
+                return null;
+            else
+                return n;
+        }
+
     }
 
     public Bin searchWorst() {
@@ -52,7 +87,7 @@ public class BST {
             root.setLeft(insertRec(root.getLeft(), bin));
         else if (bin.compareTo(root.getBin()) > 0)
             root.setRight(insertRec(root.getRight(), bin));
-        else if (bin.compareTo(root.getBin()) == 0)
+        else
             root.add(bin);
 
         return root;
